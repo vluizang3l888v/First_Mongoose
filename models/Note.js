@@ -10,7 +10,11 @@ let NoteSchema = new Schema ({
 // new blueprint, based of the Schema instructions. 
 
     title: String,
-    body: String
+    body: String,
+    articleID: {
+        type: Schema.Types.ObjectId,
+        ref: "Article"
+    }
 });
 
 

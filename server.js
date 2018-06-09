@@ -1,7 +1,10 @@
+// import { mongo } from "mongoose";
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
 const mongoose = require("mongoose");
+
 // librarys.
 
 //scrape tools
@@ -29,6 +32,10 @@ app.use(express.static("public"));
 // this is how to connect to M database.
 //mongoose.connect("mongodb://localhost/unk");
 // unk is database, need to install. 
+mongoose.Promise = global.Promise;
+mongoose.connect(
+    process.env.MONGODB_URI || "mongodb://localhost/newshw",
+);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
