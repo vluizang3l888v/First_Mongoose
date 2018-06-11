@@ -17,8 +17,9 @@ Router.get("/", (request, response) => {
 
 Router.get("/", (request, response) => {
     response.render("index");
+});
 
 
 
 
-module.exports = Router;
+module.exports = Router
