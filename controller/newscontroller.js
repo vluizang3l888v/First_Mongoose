@@ -6,7 +6,7 @@ let Router  = express.Router();
 
 
 Router.get("/", (request, response) => {
-    var fake = [{title:"China", link: "http://www.google.com"}]
+    var fake = [{title:"China", link: "http://www.scmp.com/news/china"}]
 
 
 
@@ -23,12 +23,35 @@ Router.get("/", (request, response) => {
 
 Router.get("/scrape", (request, response) => {
     
-
-    
-    
-    
-
 });
+
+
+
+
+
+
+
+
+
+//test
+Router.get("/obey", (request, response) => {
+    var obey = [{title2:"ChinaNews", link2: "https://twitter.com/XHNews?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"}]
+
+// I don't get where Router.get goes???
+
+    console.log("firing");
+    response.render("index", {article: obey})
+    
+});
+//test
+
+
+
+
+
+
+
+
 
 
 
