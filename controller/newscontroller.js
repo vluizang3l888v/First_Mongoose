@@ -6,11 +6,15 @@ let Router  = express.Router();
 
 
 Router.get("/", (request, response) => {
-    var fake = [{title:"China", link: "http://www.scmp.com/news/china"}]
+    var fake = [
+        {title:"China", link: "http://www.scmp.com/news/china"},
+        {title:"China2 click", link:"http://www.bing.com"},
+        {title:"China3 click", link:"http://www.bing.com"}
+    ]
 
 
 
-    console.log("firing");
+    console.log("firing1");
     response.render("index", {article: fake})
     
 });
@@ -24,14 +28,6 @@ Router.get("/", (request, response) => {
 Router.get("/scrape", (request, response) => {
     
 });
-
-
-
-
-
-
-
-
 
 //test
 Router.get("/obey", (request, response) => {
