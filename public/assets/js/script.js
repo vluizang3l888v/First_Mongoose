@@ -13,11 +13,17 @@
 // then on routes it knows what to do. 
 
 
+
+
+$("#cake").on("click" ,function(){
 //please grab the articles as a crazy JSON. 
 $.getJSON("/articles", function(data) {
-// for all of them, each one. 
-for (var i = 0; i < data.length; i++) {
-    // display the correct information on the page. 
-    $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
-}
-});
+    // for all of them, each one. 
+    for (var i = 0; i < data.length; i++) {
+        // display the correct information on the page. 
+        $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
+    }
+    });
+    
+})
+//button click. 

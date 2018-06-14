@@ -1,6 +1,7 @@
 
 const cheerio = require("cheerio");
 const express = require("express");
+const axios   = require("axios")  // package used to to AJAX calls...
 let Router  = express.Router();
 //const DB      = require("../models");
 
@@ -44,6 +45,47 @@ Router.get("/obey", (request, response) => {
 
 
 
+
+
+//new
+Router.get("/articles", (request, response) => {
+
+   return axios.get("https://thediplomat.com/tag/china-state-run-media/").then(function(res){
+    var $ =cheerio.load(res.data)
+    var articles = []
+    $(".postPrevTitle").each(function(i,element) {
+    var header = $(this)
+    .text();
+
+
+    var youareL =$(this)
+    .parent()
+    .parent()
+    .children("a")
+    .attr("href")
+
+    var conclusion = $(this)
+   .parent()
+   .children(".prose")
+   .text()
+
+    
+
+    var data = {
+    Line1: header,
+    Line2: youareL,
+    Line3: conclusion
+    
+      }
+    articles.push(data)
+    })
+   
+    res.json(articles);
+    })
+   })
+
+
+//new
 
 
 
